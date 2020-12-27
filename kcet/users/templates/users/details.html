@@ -1,0 +1,60 @@
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+      {% for student in students %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ student.full_name }}</a>
+              <a class="mr-2" href="#">{{ student.id }}</a>
+              <a class="mr-2" href="#">{{ student.pu_roll.pu_roll }}</a>
+                <a class="mr-2" href="#">{{ student.pu_roll.marks }}</a>
+                <a class="mr-2" href="#">{{ student.pu_roll.year }}</a>
+                <a class="mr-2" href="#">{{ student.ph_number }}</a>
+                <a class="mr-2" href="#">{{ student.bc_number }}</a>
+                <a class="mr-2" href="#">{{ student.adhaar_number }}</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+      {% for degree in degrees %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ degree.college_id }}</a>
+                <a class="mr-2" href="#">{{ degree.usn }}</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+      {% for result in results %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ result.name }}</a>
+                <a class="mr-2" href="#">{{ result.rank }}</a>
+                <a class="mr-2" href="#">{{ result.marks }}</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+      {% for puresult in puresults %}
+      <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+              <a class="mr-2" href="#">{{ puresult.pu_roll }}</a>
+              <a class="mr-2" href="#">{{ puresult.marks }}</a>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+      
+    </div>
+{% endblock content %}
